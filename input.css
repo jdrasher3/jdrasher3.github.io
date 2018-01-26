@@ -1,0 +1,126 @@
+/* form starting stylings ------------------------------- */
+.input-group { 
+  position:relative; 
+  margin-bottom: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+input, textarea				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width: 260px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+
+
+input:focus, textarea:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#416DEA;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:275px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#416DEA; 
+  transition:0.25s ease all; 
+  -moz-transition:0.25s ease all; 
+  -webkit-transition:0.25s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after,  textarea:focus ~ .bar:before, textarea:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight, textarea:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.35s ease;
+  -moz-animation:inputHighlighter 0.35s ease;
+  animation:inputHighlighter 0.35s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#416DEA; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#416DEA; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#416DEA; }
+  to 	{ width:0; background:transparent; }
+}
+
+.small-fields {
+  display: flex;
+  flex-flow: wrap;
+  padding-left: 20px;
+}
+
+.resizable-input {
+  resize: vertical;
+  display: inline-block;
+  padding: 0 20px 0 20px;
+  margin: 0;
+  white-space: nowrap;
+  width: calc(100% - 40px);
+}
+
+.full-width-field {
+  width: 100%;
+  resize: vertical;
+  font-family: Montserrat;
+}
+
+.full-width-field ~ .bar {
+  width: calc(100% + 15px);
+}
+
+.centered-button {
+  display: flex;
+  justify-content: center;
+}
